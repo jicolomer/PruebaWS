@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HolaMundo">
+        <s:complexType />
+      </s:element>
+      <s:element name="HolaMundoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HolaMundoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportarVisita">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codSeguridad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doc">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportarVisitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportarVisitaResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComprobarSeguridad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codSeguridad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComprobarSeguridadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComprobarSeguridadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LimpiarBBDD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codSeguridad" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hospital" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LimpiarBBDDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LimpiarBBDDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaIdEtnia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaIdEtniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaIdEtniaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaIdSexo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaIdSexoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaIdSexoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateaidnivelestudios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaidnivelestudiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaidnivelestudiosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateaidestadocivil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaidestadocivilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaidestadocivilResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateaidsituacionlaboral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaidsituacionlaboralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaidsituacionlaboralResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateaincapacidadpermanente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateaincapacidadpermanenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateaincapacidadpermanenteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateafnacimiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateafnacimientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateafnacimientoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateafechad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateafechadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateafechadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateafechat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateafechatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateafechatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateamuerte">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateamuerteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateamuerteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateadiagnosticocategoriaAR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateadiagnosticocategoriaARResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateadiagnosticocategoriaARResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateadiagnosticocod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateadiagnosticocodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateadiagnosticocodResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateadiagnosticoclasificacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateadiagnosticoclasificacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateadiagnosticoclasificacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateadiagnosticodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateadiagnosticodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateadiagnosticodesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Formateatratamientocod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valor" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdCMedico" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormateatratamientocodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FormateatratamientocodResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerIdsTratamientos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCentro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerIdsTratamientosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerIdsTratamientosResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HolaMundoSoapIn">
+    <wsdl:part name="parameters" element="tns:HolaMundo" />
+  </wsdl:message>
+  <wsdl:message name="HolaMundoSoapOut">
+    <wsdl:part name="parameters" element="tns:HolaMundoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportarVisitaSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportarVisita" />
+  </wsdl:message>
+  <wsdl:message name="ImportarVisitaSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportarVisitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ComprobarSeguridadSoapIn">
+    <wsdl:part name="parameters" element="tns:ComprobarSeguridad" />
+  </wsdl:message>
+  <wsdl:message name="ComprobarSeguridadSoapOut">
+    <wsdl:part name="parameters" element="tns:ComprobarSeguridadResponse" />
+  </wsdl:message>
+  <wsdl:message name="LimpiarBBDDSoapIn">
+    <wsdl:part name="parameters" element="tns:LimpiarBBDD" />
+  </wsdl:message>
+  <wsdl:message name="LimpiarBBDDSoapOut">
+    <wsdl:part name="parameters" element="tns:LimpiarBBDDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaIdEtniaSoapIn">
+    <wsdl:part name="parameters" element="tns:FormateaIdEtnia" />
+  </wsdl:message>
+  <wsdl:message name="FormateaIdEtniaSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaIdEtniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaIdSexoSoapIn">
+    <wsdl:part name="parameters" element="tns:FormateaIdSexo" />
+  </wsdl:message>
+  <wsdl:message name="FormateaIdSexoSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaIdSexoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidnivelestudiosSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateaidnivelestudios" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidnivelestudiosSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaidnivelestudiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidestadocivilSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateaidestadocivil" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidestadocivilSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaidestadocivilResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidsituacionlaboralSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateaidsituacionlaboral" />
+  </wsdl:message>
+  <wsdl:message name="FormateaidsituacionlaboralSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaidsituacionlaboralResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateaincapacidadpermanenteSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateaincapacidadpermanente" />
+  </wsdl:message>
+  <wsdl:message name="FormateaincapacidadpermanenteSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateaincapacidadpermanenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateafnacimientoSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateafnacimiento" />
+  </wsdl:message>
+  <wsdl:message name="FormateafnacimientoSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateafnacimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateafechadSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateafechad" />
+  </wsdl:message>
+  <wsdl:message name="FormateafechadSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateafechadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateafechatSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateafechat" />
+  </wsdl:message>
+  <wsdl:message name="FormateafechatSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateafechatResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateamuerteSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateamuerte" />
+  </wsdl:message>
+  <wsdl:message name="FormateamuerteSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateamuerteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticocategoriaARSoapIn">
+    <wsdl:part name="parameters" element="tns:FormateadiagnosticocategoriaAR" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticocategoriaARSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateadiagnosticocategoriaARResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticocodSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateadiagnosticocod" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticocodSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateadiagnosticocodResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticoclasificacionSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateadiagnosticoclasificacion" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticoclasificacionSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateadiagnosticoclasificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticodesSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateadiagnosticodes" />
+  </wsdl:message>
+  <wsdl:message name="FormateadiagnosticodesSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateadiagnosticodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormateatratamientocodSoapIn">
+    <wsdl:part name="parameters" element="tns:Formateatratamientocod" />
+  </wsdl:message>
+  <wsdl:message name="FormateatratamientocodSoapOut">
+    <wsdl:part name="parameters" element="tns:FormateatratamientocodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerIdsTratamientosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerIdsTratamientos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerIdsTratamientosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerIdsTratamientosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_IntegrARSoap">
+    <wsdl:operation name="HolaMundo">
+      <wsdl:input message="tns:HolaMundoSoapIn" />
+      <wsdl:output message="tns:HolaMundoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportarVisita">
+      <wsdl:input message="tns:ImportarVisitaSoapIn" />
+      <wsdl:output message="tns:ImportarVisitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarSeguridad">
+      <wsdl:input message="tns:ComprobarSeguridadSoapIn" />
+      <wsdl:output message="tns:ComprobarSeguridadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LimpiarBBDD">
+      <wsdl:input message="tns:LimpiarBBDDSoapIn" />
+      <wsdl:output message="tns:LimpiarBBDDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdEtnia">
+      <wsdl:input message="tns:FormateaIdEtniaSoapIn" />
+      <wsdl:output message="tns:FormateaIdEtniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdSexo">
+      <wsdl:input message="tns:FormateaIdSexoSoapIn" />
+      <wsdl:output message="tns:FormateaIdSexoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidnivelestudios">
+      <wsdl:input message="tns:FormateaidnivelestudiosSoapIn" />
+      <wsdl:output message="tns:FormateaidnivelestudiosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidestadocivil">
+      <wsdl:input message="tns:FormateaidestadocivilSoapIn" />
+      <wsdl:output message="tns:FormateaidestadocivilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidsituacionlaboral">
+      <wsdl:input message="tns:FormateaidsituacionlaboralSoapIn" />
+      <wsdl:output message="tns:FormateaidsituacionlaboralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateaincapacidadpermanente">
+      <wsdl:input message="tns:FormateaincapacidadpermanenteSoapIn" />
+      <wsdl:output message="tns:FormateaincapacidadpermanenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateafnacimiento">
+      <wsdl:input message="tns:FormateafnacimientoSoapIn" />
+      <wsdl:output message="tns:FormateafnacimientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechad">
+      <wsdl:input message="tns:FormateafechadSoapIn" />
+      <wsdl:output message="tns:FormateafechadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechat">
+      <wsdl:input message="tns:FormateafechatSoapIn" />
+      <wsdl:output message="tns:FormateafechatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateamuerte">
+      <wsdl:input message="tns:FormateamuerteSoapIn" />
+      <wsdl:output message="tns:FormateamuerteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FormateadiagnosticocategoriaAR">
+      <wsdl:input message="tns:FormateadiagnosticocategoriaARSoapIn" />
+      <wsdl:output message="tns:FormateadiagnosticocategoriaARSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticocod">
+      <wsdl:input message="tns:FormateadiagnosticocodSoapIn" />
+      <wsdl:output message="tns:FormateadiagnosticocodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticoclasificacion">
+      <wsdl:input message="tns:FormateadiagnosticoclasificacionSoapIn" />
+      <wsdl:output message="tns:FormateadiagnosticoclasificacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticodes">
+      <wsdl:input message="tns:FormateadiagnosticodesSoapIn" />
+      <wsdl:output message="tns:FormateadiagnosticodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Formateatratamientocod">
+      <wsdl:input message="tns:FormateatratamientocodSoapIn" />
+      <wsdl:output message="tns:FormateatratamientocodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdsTratamientos">
+      <wsdl:input message="tns:ObtenerIdsTratamientosSoapIn" />
+      <wsdl:output message="tns:ObtenerIdsTratamientosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_IntegrARSoap" type="tns:WS_IntegrARSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HolaMundo">
+      <soap:operation soapAction="http://tempuri.org/HolaMundo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportarVisita">
+      <soap:operation soapAction="http://tempuri.org/ImportarVisita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarSeguridad">
+      <soap:operation soapAction="http://tempuri.org/ComprobarSeguridad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LimpiarBBDD">
+      <soap:operation soapAction="http://tempuri.org/LimpiarBBDD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdEtnia">
+      <soap:operation soapAction="http://tempuri.org/FormateaIdEtnia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdSexo">
+      <soap:operation soapAction="http://tempuri.org/FormateaIdSexo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidnivelestudios">
+      <soap:operation soapAction="http://tempuri.org/Formateaidnivelestudios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidestadocivil">
+      <soap:operation soapAction="http://tempuri.org/Formateaidestadocivil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidsituacionlaboral">
+      <soap:operation soapAction="http://tempuri.org/Formateaidsituacionlaboral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaincapacidadpermanente">
+      <soap:operation soapAction="http://tempuri.org/Formateaincapacidadpermanente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafnacimiento">
+      <soap:operation soapAction="http://tempuri.org/Formateafnacimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechad">
+      <soap:operation soapAction="http://tempuri.org/Formateafechad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechat">
+      <soap:operation soapAction="http://tempuri.org/Formateafechat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateamuerte">
+      <soap:operation soapAction="http://tempuri.org/Formateamuerte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateadiagnosticocategoriaAR">
+      <soap:operation soapAction="http://tempuri.org/FormateadiagnosticocategoriaAR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticocod">
+      <soap:operation soapAction="http://tempuri.org/Formateadiagnosticocod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticoclasificacion">
+      <soap:operation soapAction="http://tempuri.org/Formateadiagnosticoclasificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticodes">
+      <soap:operation soapAction="http://tempuri.org/Formateadiagnosticodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateatratamientocod">
+      <soap:operation soapAction="http://tempuri.org/Formateatratamientocod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdsTratamientos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerIdsTratamientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_IntegrARSoap12" type="tns:WS_IntegrARSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HolaMundo">
+      <soap12:operation soapAction="http://tempuri.org/HolaMundo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportarVisita">
+      <soap12:operation soapAction="http://tempuri.org/ImportarVisita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprobarSeguridad">
+      <soap12:operation soapAction="http://tempuri.org/ComprobarSeguridad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LimpiarBBDD">
+      <soap12:operation soapAction="http://tempuri.org/LimpiarBBDD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdEtnia">
+      <soap12:operation soapAction="http://tempuri.org/FormateaIdEtnia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateaIdSexo">
+      <soap12:operation soapAction="http://tempuri.org/FormateaIdSexo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidnivelestudios">
+      <soap12:operation soapAction="http://tempuri.org/Formateaidnivelestudios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidestadocivil">
+      <soap12:operation soapAction="http://tempuri.org/Formateaidestadocivil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaidsituacionlaboral">
+      <soap12:operation soapAction="http://tempuri.org/Formateaidsituacionlaboral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateaincapacidadpermanente">
+      <soap12:operation soapAction="http://tempuri.org/Formateaincapacidadpermanente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafnacimiento">
+      <soap12:operation soapAction="http://tempuri.org/Formateafnacimiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechad">
+      <soap12:operation soapAction="http://tempuri.org/Formateafechad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateafechat">
+      <soap12:operation soapAction="http://tempuri.org/Formateafechat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateamuerte">
+      <soap12:operation soapAction="http://tempuri.org/Formateamuerte" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormateadiagnosticocategoriaAR">
+      <soap12:operation soapAction="http://tempuri.org/FormateadiagnosticocategoriaAR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticocod">
+      <soap12:operation soapAction="http://tempuri.org/Formateadiagnosticocod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticoclasificacion">
+      <soap12:operation soapAction="http://tempuri.org/Formateadiagnosticoclasificacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateadiagnosticodes">
+      <soap12:operation soapAction="http://tempuri.org/Formateadiagnosticodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Formateatratamientocod">
+      <soap12:operation soapAction="http://tempuri.org/Formateatratamientocod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerIdsTratamientos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerIdsTratamientos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_IntegrAR">
+    <wsdl:port name="WS_IntegrARSoap" binding="tns:WS_IntegrARSoap">
+      <soap:address location="https://proyecto-integrar.es/WS/WS_integrar.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_IntegrARSoap12" binding="tns:WS_IntegrARSoap12">
+      <soap12:address location="https://proyecto-integrar.es/WS/WS_integrar.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
