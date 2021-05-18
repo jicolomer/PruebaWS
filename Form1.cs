@@ -20,8 +20,7 @@ namespace PruebaWS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-              
-            //Comment Final
+            //Comment Final 2
             Prueba.WS_IntegrAR p = new Prueba.WS_IntegrAR();
 
             try
